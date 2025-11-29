@@ -51,8 +51,8 @@ sudo chmod 600 "$LOG_DIR/doberman.log"
 
 echo "[5/6] Installing systemd service and timer..."
 
-sudo cp "$INSTALL_DIR/systemd/doberman.service" "$SERVICE_FILE"
-sudo cp "$INSTALL_DIR/systemd/doberman.timer" "$TIMER_FILE"
+sudo cp "$INSTALL_DIR/systemd-services/doberman.service" "$SERVICE_FILE"
+sudo cp "$INSTALL_DIR/systemd-services/doberman.timer" "$TIMER_FILE"
 sudo chmod 644 "$SERVICE_FILE" "$TIMER_FILE"
 
 sudo systemctl daemon-reload
