@@ -1,18 +1,12 @@
- [Unit]
+[Unit]
 Description=doberman - file integrity monitor
 
 [Service]
-ExecStart=/usr/bin/python /home/user/bfh/modern-linux/doberman/main.py
-
-# Disable Python's buffering of STDOUT and STDERR, so that output from the
-# service shows up immediately in systemd's logs
+ExecStart=/usr/bin/python3 /opt/doberman/main.py
 Environment=PYTHONUNBUFFERED=1
 
-Restart=on-failure
-Type=oneshot
-
-# Use a dedicated user to run our service
-User=doberman
+User=root
+Group=root
 
 [Install]
-WantedBy=default.target
+WantedBy=multi-user.target
