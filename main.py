@@ -4,7 +4,6 @@ from core.hasher import load_baseline, verify_file
 from core.logger import log
 
 BASELINE_FILE = "/opt/doberman/baseline.db"
-LOGFILE = "/var/log/doberman/doberman.log"
 
 
 def main():
