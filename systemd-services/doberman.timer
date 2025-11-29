@@ -1,0 +1,12 @@
+[Unit]
+Description=doberman file integrity monitor timer
+
+[Timer]
+# start X seconds after boot
+OnBootSec=10s 
+# run every X minutes
+OnUnitActiveSec=2min 
+Unit=doberman.service
+
+[Install]
+WantedBy=timers.target
