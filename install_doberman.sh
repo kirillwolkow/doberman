@@ -6,6 +6,7 @@ INSTALL_DIR="/opt/doberman"
 LOG_DIR="/var/log/doberman"
 CONFIG_SRC="$INSTALL_DIR/doberman.example.config"
 CONFIG_DST="$INSTALL_DIR/doberman.config"
+BASELINE_FILE="$INSTALL_DIR/baseline.db"
 SERVICE_FILE="/etc/systemd/system/doberman.service"
 TIMER_FILE="/etc/systemd/system/doberman.timer"
 
@@ -32,6 +33,14 @@ if [ ! -f "$CONFIG_DST" ]; then
     sudo chmod 600 "$CONFIG_DST"
 else
     echo "Existing doberman.config detected — leaving unchanged."
+fi
+
+if [ ! -f "$BASELINE_FILE" ]; then
+    echo "baseline.db not found — generating baseline..."
+    sudo python3 "$INSTALL_DIR/core/baseline.py"
+    sudo chmod 600 "$BASELINE_FILE"
+else
+    echo "Existing baseline.db found — skipping generation."
 fi
 
 
