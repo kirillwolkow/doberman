@@ -49,6 +49,16 @@ With the last command, you should see something similar like:
 
 ![Log Output](./docs/log-output.png)
 
+### Uninstall
+
+There is also an uninstaller script which removes everything related to *Doberman*.
+
+```shell
+curl -O https://raw.githubusercontent.com/kirillwolkow/doberman/main/uninstall_doberman.sh
+chmod +x uninstall_doberman.sh
+sudo ./uninstall_doberman.sh
+```
+
 ## Baseline file Protection
 
 The `baseline.db` file is the root of trust for your file integrity monitor.
@@ -83,5 +93,10 @@ sudo python3 /opt/doberman/core/baseline.py
 sudo chattr +i /opt/doberman/baseline.db
 ```
 
-### Encrypt with private key
-TODO
+### Protect with private key
+
+In case the account with which *Doberman* has been set up, is breached, it's possible to tamper the baseline file.
+
+For better hardening, it's recommended to create a private key which lies externally (smartcard, yubikey etc.). 
+
+TODO step-by-step guide
